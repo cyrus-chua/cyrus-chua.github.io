@@ -1,0 +1,615 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en"><head><title>Playground Messages</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Playground Messages">
+<meta name="keywords" content="Reliable Delivery, Transmission Control">
+<meta name="generator" content="xml2rfc v1.35dev (http://xml2rfc.ietf.org/)">
+<style type='text/css'><!--
+        body {
+                font-family: verdana, charcoal, helvetica, arial, sans-serif;
+                font-size: small; color: #000; background-color: #FFF;
+                margin: 2em;
+        }
+        h1, h2, h3, h4, h5, h6 {
+                font-family: helvetica, monaco, "MS Sans Serif", arial, sans-serif;
+                font-weight: bold; font-style: normal;
+        }
+        h1 { color: #900; background-color: transparent; text-align: right; }
+        h3 { color: #333; background-color: transparent; }
+
+        td.RFCbug {
+                font-size: x-small; text-decoration: none;
+                width: 30px; height: 30px; padding-top: 2px;
+                text-align: justify; vertical-align: middle;
+                background-color: #000;
+        }
+        td.RFCbug span.RFC {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: bold; color: #666;
+        }
+        td.RFCbug span.hotText {
+                font-family: charcoal, monaco, geneva, "MS Sans Serif", helvetica, verdana, sans-serif;
+                font-weight: normal; text-align: center; color: #FFF;
+        }
+
+        table.TOCbug { width: 30px; height: 15px; }
+        td.TOCbug {
+                text-align: center; width: 30px; height: 15px;
+                color: #FFF; background-color: #900;
+        }
+        td.TOCbug a {
+                font-family: monaco, charcoal, geneva, "MS Sans Serif", helvetica, sans-serif;
+                font-weight: bold; font-size: x-small; text-decoration: none;
+                color: #FFF; background-color: transparent;
+        }
+
+        td.header {
+                font-family: arial, helvetica, sans-serif; font-size: x-small;
+                vertical-align: top; width: 33%;
+                color: #FFF; background-color: #666;
+        }
+        td.author { font-weight: bold; font-size: x-small; margin-left: 4em; }
+        td.author-text { font-size: x-small; }
+
+        /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+        a.info {
+                /* This is the key. */
+                position: relative;
+                z-index: 24;
+                text-decoration: none;
+        }
+        a.info:hover {
+                z-index: 25;
+                color: #FFF; background-color: #900;
+        }
+        a.info span { display: none; }
+        a.info:hover span.info {
+                /* The span will display just on :hover state. */
+                display: block;
+                position: absolute;
+                font-size: smaller;
+                top: 2em; left: -5em; width: 15em;
+                padding: 2px; border: 1px solid #333;
+                color: #900; background-color: #EEE;
+                text-align: left;
+        }
+
+        a { font-weight: bold; }
+        a:link    { color: #900; background-color: transparent; }
+        a:visited { color: #633; background-color: transparent; }
+        a:active  { color: #633; background-color: transparent; }
+
+        p { margin-left: 2em; margin-right: 2em; }
+        p.copyright { font-size: x-small; }
+        p.toc { font-size: small; font-weight: bold; margin-left: 3em; }
+        table.toc { margin: 0 0 0 3em; padding: 0; border: 0; vertical-align: text-top; }
+        td.toc { font-size: small; font-weight: bold; vertical-align: text-top; }
+
+        ol.text { margin-left: 2em; margin-right: 2em; }
+        ul.text { margin-left: 2em; margin-right: 2em; }
+        li      { margin-left: 3em; }
+
+        /* RFC-2629 <spanx>s and <artwork>s. */
+        em     { font-style: italic; }
+        strong { font-weight: bold; }
+        dfn    { font-weight: bold; font-style: normal; }
+        cite   { font-weight: normal; font-style: normal; }
+        tt     { color: #036; }
+        tt, pre, pre dfn, pre em, pre cite, pre span {
+                font-family: "Courier New", Courier, monospace; font-size: small;
+        }
+        pre {
+                text-align: left; padding: 4px;
+                color: #000; background-color: #CCC;
+        }
+        pre dfn  { color: #900; }
+        pre em   { color: #66F; background-color: #FFC; font-weight: normal; }
+        pre .key { color: #33C; font-weight: bold; }
+        pre .id  { color: #900; }
+        pre .str { color: #000; background-color: #CFF; }
+        pre .val { color: #066; }
+        pre .rep { color: #909; }
+        pre .oth { color: #000; background-color: #FCF; }
+        pre .err { background-color: #FCC; }
+
+        /* RFC-2629 <texttable>s. */
+        table.all, table.full, table.headers, table.none {
+                font-size: small; text-align: center; border-width: 2px;
+                vertical-align: top; border-collapse: collapse;
+        }
+        table.all, table.full { border-style: solid; border-color: black; }
+        table.headers, table.none { border-style: none; }
+        th {
+                font-weight: bold; border-color: black;
+                border-width: 2px 2px 3px 2px;
+        }
+        table.all th, table.full th { border-style: solid; }
+        table.headers th { border-style: none none solid none; }
+        table.none th { border-style: none; }
+        table.all td {
+                border-style: solid; border-color: #333;
+                border-width: 1px 2px;
+        }
+        table.full td, table.headers td, table.none td { border-style: none; }
+
+        hr { height: 1px; }
+        hr.insert {
+                width: 80%; border-style: none; border-width: 0;
+                color: #CCC; background-color: #CCC;
+        }
+--></style>
+</head>
+<body>
+
+<table border="0" cellpadding="0" cellspacing="2" width="30" align="right">
+    <tr>
+        <td class="RFCbug">
+                <span class="RFC">&nbsp;RFC&nbsp;</span><br /><span class="hotText">&nbsp;2&nbsp;</span>
+        </td>
+    </tr>
+    <tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a><br /></td></tr>
+</table>
+<table summary="layout" width="66%" border="0" cellpadding="0" cellspacing="0"><tr><td><table summary="layout" width="100%" border="0" cellpadding="2" cellspacing="1">
+<tr><td class="header">Network Working Group</td><td class="header">S. Nielson, Ed.</td></tr>
+<tr><td class="header">Request for Comments: 2</td><td class="header">JHU Network Security Spring 2016</td></tr>
+<tr><td class="header">Category: Standards Track</td><td class="header">March 2016</td></tr>
+</table></td></tr></table>
+<h1><br />Playground Messages</h1>
+
+<h3>Abstract</h3>
+
+<p>The PLAYGROUND (Poly-Localized Algorithmic Yields
+     Generated Remotely On Unused Network Devices) system is
+     designed to give students and researchers a sandbox in which to develop
+     network security experiments. This standard defines
+     a protocol for reliable message delivery and transmission control called
+     Playground Transmission Control Lite (PTCL). PTCL is designed to run over
+     C2C, transparently providing for upper layers a reliable transmission that
+     guarantees delivery, order, and message integrity.
+</p>
+<h3>Status of this Memo</h3>
+<p>
+This document specifies a Playgrounds standards track protocol for the Playground
+Experiment, and requests discussion and suggestions for improvements.
+Distribution of this memo is unlimited.</p>
+
+<h3>Copyright Notice</h3>
+<p>
+Copyright &copy; Seth James Nielson (2016). All Rights Reserved.</p>
+<a name="toc"></a><hr />
+
+<table border="0" cellpadding="0" cellspacing="2" width="30" align="right">
+    <tr>
+        <td class="RFCbug">
+                <span class="RFC">&nbsp;RFC&nbsp;</span><br /><span class="hotText">&nbsp;2&nbsp;</span>
+        </td>
+    </tr>
+    <tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a><br /></td></tr>
+</table>
+<h3>Table of Contents</h3>
+<p class="toc">
+<a href="#anchor1">1.</a>&nbsp;
+Introduction<br />
+<a href="#anchor2">2.</a>&nbsp;
+Requirements Language<br />
+<a href="#anchor3">3.</a>&nbsp;
+Terminology<br />
+<a href="#anchor4">4.</a>&nbsp;
+Playground Sliding Window Protocol<br />
+<a href="#anchor5">5.</a>&nbsp;
+State Machine<br />
+<a href="#anchor6">6.</a>&nbsp;
+Session Termination<br />
+<a href="#anchor7">7.</a>&nbsp;
+Message Definitions<br />
+<a href="#anchor8">8.</a>&nbsp;
+Sequence Numbers<br />
+<a href="#anchor9">9.</a>&nbsp;
+Hash<br />
+<a href="#anchor10">10.</a>&nbsp;
+Security Considerations<br />
+<a href="#rfc.references1">11.</a>&nbsp;
+Normative References<br />
+<a href="#rfc.authors">&#167;</a>&nbsp;
+Author's Address<br />
+<a href="#rfc.copyright">&#167;</a>&nbsp;
+Intellectual Property and Copyright Statements<br />
+</p>
+<br clear="all" />
+
+<a name="anchor1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.1"></a><h3>1.&nbsp;
+Introduction</h3>
+
+<p>The PLAYGROUND experiment often will have much traffic traveling
+     throughout the network. It is of utmost importance to be sure that
+     parties are connected and know the status of message delivery. The
+     C2C layer, while defining a protocol for basic delivery and multiplexing
+     (via ports), provides no guarantees of message correctness, in-order
+     delivery, or even delivery itself.
+    
+</p>
+<p>This standard defines a new protocol that runs on top of C2C called
+     Playground Transmission Control Lite (PTCL). PTCL provides the following guarantees:
+</p>
+<p></p>
+<ul class="text">
+<li>Delivery
+</li>
+<li>In-order delivery
+</li>
+<li>Message integrity
+</li>
+</ul>
+
+<p>Unlike C2C, which is stateless, PTCL introduces sessions. A PTCL
+     session begins with a handshake, encapsulates bi-directional data transfer
+     between a client and a server, and ends with a disconnect routine. Messages
+     within the session have a sequence number to ensure in-order delivery, a
+     HASH to ensure that the message is correct, and are acknowledged to
+     confirm reception.
+</p>
+<p>This document defines both the state machine of the protocol and the
+     message formats sent between two PTCL peers.
+</p>
+<a name="anchor2"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.2"></a><h3>2.&nbsp;
+Requirements Language</h3>
+
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+       "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+       document are to be interpreted as described in <a class='info' href='#RFC2119'>RFC 2119<span> (</span><span class='info'>Bradner, S., &ldquo;Key words for use in RFCs to Indicate Requirement Levels,&rdquo; March&nbsp;1997.</span><span>)</span></a> [RFC2119].
+</p>
+<a name="anchor3"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.3"></a><h3>3.&nbsp;
+Terminology</h3>
+
+<p></p>
+<ul class="text">
+<li>Client: Node initiating connection to another node
+</li>
+<li>Server: Node listening for incoming connection or connections on a C2C port
+</li>
+<li>Peer: The other node in the connection
+</li>
+<li>Sending data: transmitting DATA packets to the peer
+</li>
+<li>Delivering data: returning data (received from the network) to the
+     application layer
+</li>
+<li>Handshake: Initialization routine used to start a PTCL session between two peers
+</li>
+<li>Session: All data transmitted between two peers guaranteed to be delivered in-order, without error
+</li>
+<li>Session Close: Termination routine that marks the end of a session
+</li>
+<li>Session Abort: Terminatine procedure when PTCL guarantees cannot be met
+</li>
+</ul>
+
+<a name="anchor4"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.4"></a><h3>4.&nbsp;
+Playground Sliding Window Protocol</h3>
+
+<p>The Sliding Window protocol is a way to implement the concept of Cumulative Acknowledgement. Cumulative ACK comes as opposed to send -> ack -> send method where the sender goes into a busy wait for an ack before it can start sending data again. The WINDOW SIZE must equal 16. The DATA SIZE MUST be less than or equal to 4KB. The session timeout timer is set to 1 second. The timer for resending an ack is 10 milliseconds. 
+</p>
+<p>Depending on whether it is located on the sender or receiver side, the window of the protocol has a different purpose. The window on the sender end contains the maximum number of packets that the sender can send without needing to wait for an ACK message. A receiver's window contains the maximum number of packets a sender can buffer out of order. Once full, the receiver window will discard the packets received. 
+</p>
+<p>The Protocol: Sender Side
+</p>
+<p>The Sliding window on the sender side means that the sender would "slide" the window of the unacknowledged packets as ACK's for them are received. If the sender receives an ACK for a packet with sequence number higher than the first packet in the window, the sender will assume that all packets obtained before the ACK'd one have been successfully delivered. The window will move accordingly as the interaction with both entities goes on. 
+</p>
+<p>Start: Post handshake
+</p>
+<p>
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+        ______________
+        |1|2|3|4|5|6|7|
+        --------------
+        Packet 1 ACK Received
+         |_____________
+       |1|2|3|4|5|6|7|8|
+         |-------------
+        Packet 6 ACK Received
+                    |_________________
+        |1|2|3|4|5|6|7|8|9|10|11|12|13|
+                    |-----------------
+</pre></div>
+<p> Scenarios for when an ACK is received for a packet that has already been ACked: 
+</p>
+<p> 1) THe ACK received belongs to a delayed packet (i.e. outside of the current window).
+</p>
+<p> 2) The packet sent post ACK has not been received by the receiver. In other words, the packet being ACK'd is one less than the lowest sequence in the window. Here it means that the next packet needs to be resent. 
+</p>
+<p> The Protocol: Receiver Side
+</p>
+<p> The receiver only sends ACK messages to the sender for the last contiguously received packet upon the expiry of the timer(explained below). If the receiver obtains packets out of order, it still sends an ACK for the last contiguously received packet. Out of order packets will be buffered in the "window" on the receiver side. The window here is the maximum out of order packets that the receiver can accept. 
+</p>
+<p> The criteria for initiation of an ACK is based on the expiry of a timer. The timer parameter is set to 10 milliseconds. Every time a packet is received "in order", it is processed (see the state machine) and the timer is reset. If packets are received out of order, the timer is "not reset" and is allowed to expire. The expiry of the timer causes the sender to (re)initiate an ACK for the last contiguiously received packet. Once again, the timer parameter is 10 milliseconds. 
+</p>
+<p>Multiple ACK of of the same packet would prod the sender to resend the packet which is after the packet being ACK'd. 
+</p>
+<a name="anchor5"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.5"></a><h3>5.&nbsp;
+State Machine</h3>
+
+<p>
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+                Handshake Protocol:
+
+    Client State Machine
+    State         Event           Action      Next State
+    -----------------------------------------------
+    CONNECTING    ---             Send SYN    CONNECTING
+    CONNECTING    TIMEOUT         Send SYN    CONNECTING
+    CONNECTING    SYNACK received Send ACK    SENDRECV
+
+    Server State Machine
+    State        Event           Action      Next State
+    -----------------------------------------------
+    LISTENING    TIMEOUT         ---         LISTENING
+    LISTENING    SYN received    Send SYNACK CONNECTING
+    CONNECTING   TIMEOUT         Send SYNACK CONNECTING
+    CONNECTING   ACK received    ---         SENDRECV
+
+</pre></div>
+<p>
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+    Transmission--Receiver
+
+    Callbacks:
+    packet_received(Packet packet)
+       if packet.messageType == DATA
+          #Add the received packet to the window
+          window.add( packet )
+          #Pop as many in-order packets as possible
+          #from the front of the window to the application layer
+          num_delivered = window.deliver()
+
+       #If packets came in order then we don't need to ACK them now
+       if num_delivered &gt; 0
+          timer.reset()
+
+    timeout()
+       #Send ACK for the current highest sequence packet delivered
+       send_ack ( seq )
+       #Reset the timer
+       timer.reset()
+
+
+    Transmission--Sender
+
+    Callbacks:
+    packet_received(Packet packet)
+       #ACK received
+       if packet.messageType == "ACK"
+          #Clear packets up to (and including) the ACKed sequence
+          window.clear( packet.seq)
+
+          #Restransmit the packet with the next sequence
+          retransmit( window.getPacket( packet.seq+1))
+
+       #If there is room in the window, send more data packets
+       while not window.isFull()
+          next_packet = makeNextPacket()
+          sendPacket (next_packet)
+          window.add(next_packet)
+
+    timeout()
+       #Retransmit last unacked packet
+       Retrasnmitrtransmit (window.firstPacket()
+
+       #If there is room in the window, send more data packets
+       while not window.isFull()
+          next_packet = makeNextPacket()
+          sendPacket( next_packet )
+          window.add( next packet)
+</pre></div>
+<p>Any message received which is inconsistent with the behavior defined by 
+      this protocol should be ignored.
+</p>
+<a name="anchor6"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.6"></a><h3>6.&nbsp;
+Session Termination</h3>
+
+<p>At any time, the connection may be terminated by either peer.
+</p>
+<p>The terminating peer transmits FIN periodically.  If FINACK is received or 
+      a pre-defined timeout expires, the terminating peer sends a single FINACK 
+      and terminates.
+</p>
+<p>If a peer receives a FIN message, the receiving peer transmits FINACK 
+      periodically.  If FINACK is received or a pre-defined timeout expires, the 
+      receiving peer terminates.
+</p>
+<p>Once the termination procedure has begun, peers are not obligated to 
+      continue transmitting undelivered data.
+</p>
+<a name="anchor7"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.7"></a><h3>7.&nbsp;
+Message Definitions</h3>
+
+<p>
+</p><div style='display: table; width: 0; margin-left: 3em; margin-right: auto'><pre>
+class PTCLMessage(MessageDefinition):
+  PLAYGROUND_IDENTIFIER = "playground.base.PTCLMessage"
+  MESSAGE_VERSION = "1.0"
+
+  BODY = [
+    ("Hash", STRING),
+    ("MessageType", STRING),
+    ("MessageSeq", UINT8),
+    ("AckSeq", UINT8),
+    ("Data", STRING)
+  ]
+
+</pre></div>
+<p></p>
+<ul class="text">
+<li>Hash is the SHA256 digest of the entire message (with the Hash 
+</li>
+<li>initially set to "0").This is to be of the un-serialization of the 
+</li>
+<li>message
+</li>
+<li>MessageType is one of "SYN", "SYNACK", "ACK", "DATA", "FIN", "FINACK"
+</li>
+<li>MessageSeq is the sequence number of the current message (only has
+</li>
+<li>meaning for SYN, SYNACK, and DATA messages).
+</li>
+<li>AckSeq is the sequence number of the last packet delivered (included for all 
+    message types, except SYN).
+</li>
+<li>Data is the raw data payload associated with the packet (only has
+</li>
+<li>meaning for DATA packets).
+</li>
+</ul>
+
+<a name="anchor8"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.8"></a><h3>8.&nbsp;
+Sequence Numbers</h3>
+
+<p>Starting sequence: each peer should choose its starting sequence number 
+         at random.
+</p>
+<p>Maximum sequence number: all sequence numbers are represented as unsigned 
+         8-bit integers; accordingly, the maximum value is 255.
+</p>
+<a name="anchor9"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.9"></a><h3>9.&nbsp;
+Hash</h3>
+
+<p>In order to take the hash of the message the hash field MUST be
+         explicitly set to the character '0'.  After this the message MUST be
+         serialized using Playground's serialization method.  The bytes
+         produced by this serialization are the hash of the message.
+</p>
+<p>After hashing a hexdigest should be taken of the hash, the purpose
+         of this being that it does not compromise the hash and it makes it
+         human readable in order to ease testing.
+</p>
+<p>In order to unhash the message the receiver should unserialize the
+         message, save the value of the hash field and set the field to 0.
+         After this the message should be serialized and hashd as above, and
+         that hash compared with the saved hash.
+</p>
+<p>Any message received with an invalid hash value should be ignored.
+</p>
+<a name="anchor10"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<a name="rfc.section.10"></a><h3>10.&nbsp;
+Security Considerations</h3>
+
+<p>Messages have been designed to be reasonably benign. No arbitrary code
+   is executed by their handshake process. It is important to note that the
+   measures taken by this protocol to guarantee reliability does not make the
+   network become resistant against adversaries. Message integrity here (which
+   is enforced by the HASH) allows random errors introduced to data packets
+   to be detected and be recovered from. The threat model of PTCL is as follows:
+</p>
+<p>Assessment scope - What is on the line here is the function of the network to
+   ensure data can be sent from the sender to the receiver as intended.
+</p>
+<p>Threat agents - Other users of PTCL, essentially everyone in the class is a
+   potential threat.
+</p>
+<p>Existing Countermeasures - PTCL does not include many countermeasures to
+   protect message integrity against an active attacker.  This is beyond the
+   scope of PTCL. The HASH protects against random error and the simplest
+   of attacks, but is not meant to stop an active attacker.
+</p>
+<p>Vulnerabilities - PTCL has no means of verifying the sender of a message, or
+   verifying that the contents of a message and its HASH have not been altered
+   in any way.
+</p>
+<p>Beyond the above PTCL is not concerned with security.
+</p>
+<a name="rfc.references1"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>11.&nbsp;Normative References</h3>
+<table width="99%" border="0">
+<tr><td class="author-text" valign="top"><a name="RFC2119">[RFC2119]</a></td>
+<td class="author-text">Bradner, S., &ldquo;<a href="http://www.rfc-editor.org/info/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>,&rdquo; BCP&nbsp;14, RFC&nbsp;2119, DOI&nbsp;10.17487/RFC2119, March&nbsp;1997.</td></tr>
+</table>
+
+<a name="rfc.authors"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>Author's Address</h3>
+<table width="99%" border="0" cellpadding="0" cellspacing="0">
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Seth James Nielson (editor)</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">JHU Network Security Spring 2016</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">JHU 160 Malone Hall/3400 North Charles St.</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">Baltimore, MD  21218</td></tr>
+<tr><td class="author-text">&nbsp;</td>
+<td class="author-text">USA</td></tr>
+<tr><td class="author" align="right">Phone:&nbsp;</td>
+<td class="author-text">+1 410-497-7384</td></tr>
+<tr><td class="author" align="right">Email:&nbsp;</td>
+<td class="author-text"><a href="mailto:sethjn@gmail.com">sethjn@gmail.com</a></td></tr>
+</table>
+<a name="rfc.copyright"></a><br /><hr />
+<table summary="layout" cellpadding="0" cellspacing="2" class="TOCbug" align="right"><tr><td class="TOCbug"><a href="#toc">&nbsp;TOC&nbsp;</a></td></tr></table>
+<h3>Full Copyright Statement</h3>
+<p class='copyright'>
+Copyright &copy; Seth James Nielson (2016). All Rights Reserved.</p>
+<p class='copyright'>
+This document and translations of it may be copied and furnished to
+others, and derivative works that comment on or otherwise explain it
+or assist in its implementation may be prepared, copied, published and
+distributed, in whole or in part, without restriction of any kind,
+provided that the above copyright notice and this paragraph are
+included on all such copies and derivative works. However, this
+document itself may not be modified in any way, such as by removing
+the copyright notice or references to the PLAYGROUND experiment or other
+associated organizations, except by explicit permission.</p>
+<p class='copyright'>
+The limited permissions granted above are perpetual and will not be
+revoked by SETH JAMES NIELSON or his successors or assigns.</p>
+<p class='copyright'>
+This document and the information contained herein is provided on an
+&ldquo;AS IS&rdquo; basis and SETH JAMES NIELSON and associated academic institutions
+DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING
+BUT NOT LIMITED TO ANY WARRANTY THAT THE USE OF THE INFORMATION
+HEREIN WILL NOT INFRINGE ANY RIGHTS OR ANY IMPLIED WARRANTIES OF
+MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.</p>
+<h3>Intellectual Property</h3>
+<p class='copyright'>
+The PLAYGROUND framework and student submissions for
+PLAYGROUND are intended to be free of any intellectual
+property conflicts. All submitting parties, especially students,
+are not allowed to submit source code, specifications, or 
+other components that are known to be protected by copyright,
+patents, or other IP mechanisms. Students submitting creative
+content grant shared rights and ownership of their content to
+the PLAYGROUND project. Specifically, any submission can be
+used in future educational settings including subsequent PLAYGROUND
+experiments.</p>
+<p class='copyright'>
+Any interested party is invited to bring to the experiment director's
+attention any copyrights, patents or patent applications, or
+other proprietary rights which may cover technology that may be
+currently in use without permission.</p>
+<p class='copyright'>
+It should be noted that these statements have not been reviewed
+by legal counsel. Moreover, the academic institutions at
+which PLAYGROUND experiments take place may have additional 
+or even conflicting copyright and intellectual property rules.
+Accordingly, concerned parties may need to contact their own lawyer
+and/or resources at their institution to understand the rights and
+limitations associated with code donated to a PLAYGROUND experiment.</p>
+</body></html>
